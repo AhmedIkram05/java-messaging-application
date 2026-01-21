@@ -73,8 +73,8 @@ A feature-rich desktop messaging application built with Java Swing that provides
 
 1. **Clone the repository:**
    ```bash
-   git clone <repository-url>
-   cd java-messaging-application-1
+   git clone https://github.com/AhmedIkram05/java-messaging-application.git
+   cd java-messaging-application
    ```
 
 2. **Compile the source files:**
