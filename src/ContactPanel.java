@@ -19,7 +19,7 @@ public class ContactPanel extends JPanel implements ActionListener {
 	private static final String EDIT_NAME_ACTION = "EditName";
 	private static final String EDIT_ID_ACTION = "EditID";
 	private static final String EDIT_PHONE_ACTION = "EditPhone";
-	private static final String PHONE_NUMBER_PATTERN = "[\\d\\s]*\\d[\\d\\s]*";
+	private static final String PHONE_NUMBER_PATTERN = "[\\d\\s]+";
 	private JLabel avatar;
 	private JTextField txtName;
 	private JTextField txtId;
@@ -168,7 +168,7 @@ public class ContactPanel extends JPanel implements ActionListener {
 	private Contact fillContact() {
 		contact.setName(txtName.getText());
 		contact.setID(Integer.parseInt(txtId.getText()));
-		contact.setPhoneNumber(txtPhone.getText());
+		contact.setPhoneNumber(txtPhone.getText().trim());
 		contact.setProfileImage((ImageIcon) avatar.getIcon());
 		return contact;
 	}
@@ -196,11 +196,12 @@ public class ContactPanel extends JPanel implements ActionListener {
 			}
 		}
 		String phoneText = txtPhone.getText();
-		if (!(Objects.nonNull(phoneText) && !phoneText.isEmpty())) {
+		String trimmedPhoneText = Objects.nonNull(phoneText) ? phoneText.trim() : null;
+		if (!(Objects.nonNull(trimmedPhoneText) && !trimmedPhoneText.isEmpty())) {
 			txtPhone.requestFocus();
 			return false;
 		} else {
-			if (!phoneText.matches(PHONE_NUMBER_PATTERN)) {
+			if (!trimmedPhoneText.matches(PHONE_NUMBER_PATTERN)) {
 				txtPhone.requestFocus();
 				return false;
 			}
