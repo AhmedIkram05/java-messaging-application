@@ -199,8 +199,7 @@ public class ContactPanel extends JPanel implements ActionListener {
 			txtPhone.requestFocus();
 			return false;
 		} else {
-			String normalized = phonStr.replaceAll("\\s+", "");
-			if (normalized.isEmpty() || !normalized.matches("\\d+")) {
+			if (phonStr.trim().isEmpty() || !phonStr.matches("[\\d\\s]+")) {
 				txtPhone.requestFocus();
 				return false;
 			}
