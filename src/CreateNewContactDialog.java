@@ -66,7 +66,7 @@ public class CreateNewContactDialog extends JDialog implements ActionListener {
 		setLayout(new BorderLayout());
 		contactPanel = new ContactPanel();
 
-		contact = new Contact(null, 0, 0, null, null);
+		contact = new Contact(null, 0, "", null, null);
 		contactPanel.setContact(contact);
 		contactPanel.createContactMode(true);
 		add(contactPanel, BorderLayout.CENTER);

@@ -158,7 +158,7 @@ public class ContactPanel extends JPanel implements ActionListener {
 		}
 		txtName.setText(contact.getName());
 		txtId.setText(String.valueOf(contact.getID()));
-		txtPhone.setText(String.valueOf(contact.getPhoneNumber()));
+		txtPhone.setText(Objects.isNull(contact.getPhoneNumber()) ? "" : contact.getPhoneNumber());
 		avatar.setIcon(contact.getProfileImage());
 		revalidate();
 		repaint();
@@ -167,7 +167,7 @@ public class ContactPanel extends JPanel implements ActionListener {
 	private Contact fillContact() {
 		contact.setName(txtName.getText());
 		contact.setID(Integer.parseInt(txtId.getText()));
-		contact.setPhoneNumber(Integer.parseInt(txtPhone.getText()));
+		contact.setPhoneNumber(txtPhone.getText());
 		contact.setProfileImage((ImageIcon) avatar.getIcon());
 		return contact;
 	}
@@ -199,13 +199,8 @@ public class ContactPanel extends JPanel implements ActionListener {
 			txtPhone.requestFocus();
 			return false;
 		} else {
-			boolean isHappy = false;
-			try {
-				Integer test = Integer.parseInt(phonStr);
-			} catch (Exception ignored) {
-				isHappy = true;
-			}
-			if (isHappy) {
+			String normalized = phonStr.replaceAll("\\s+", "");
+			if (normalized.isEmpty() || !normalized.matches("\\d+")) {
 				txtPhone.requestFocus();
 				return false;
 			}

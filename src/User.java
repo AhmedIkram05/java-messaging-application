@@ -23,7 +23,7 @@ public class User extends Contact {
 
 //	private LinkedList<Chat> chats;
 
-	public User(String name, int ID, int telephone_no) {
+	public User(String name, int ID, String telephone_no) {
 		super(name, ID, telephone_no, null, null);
 		this.contactList = new ArrayList<>();
 		this.contactAlphabetical = new ArrayList<>();
@@ -36,7 +36,7 @@ public class User extends Contact {
 	 * @param name represents user's name
 	 * @param phoneNumber represents user's phone number
 	 */
-	public User(String name, int phoneNumber) {
+	public User(String name, String phoneNumber) {
 		super(name, 0, phoneNumber, null, null);
 		this.contactList = new ArrayList<>();
 		this.contactAlphabetical = new ArrayList<>();
