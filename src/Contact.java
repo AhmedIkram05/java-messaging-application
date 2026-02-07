@@ -15,7 +15,7 @@ public class Contact implements Serializable {
 	// Define Contact class fields
 	private String name;
 	private int ID;
-	private int phoneNumber;
+	private String phoneNumber;
 	private final LocalDateTime dateAdded;
 	private LocalDateTime date;
 	private ImageIcon profileImage;
@@ -41,11 +41,11 @@ public class Contact implements Serializable {
 	 * @param name
 	 * @param phoneNumber
 	 */
-	public Contact(String name, int phoneNumber) {
+	public Contact(String name, String phoneNumber) {
 		this(name, 0, phoneNumber, LocalDateTime.now(), new ImageIcon("src/defaultImage.png"));
 	}
 
-	public Contact(String name, int ID, int phoneNumber, LocalDateTime date, ImageIcon profileImage) {
+	public Contact(String name, int ID, String phoneNumber, LocalDateTime date, ImageIcon profileImage) {
 		this.name = name;
 		this.ID = ID;
 		this.phoneNumber = phoneNumber;
@@ -168,7 +168,7 @@ public class Contact implements Serializable {
 	 *
 	 * @return phone number
 	 */
-	public int getPhoneNumber() {
+	public String getPhoneNumber() {
 		return this.phoneNumber;
 	}
 
@@ -177,7 +177,7 @@ public class Contact implements Serializable {
 	 *
 	 * @param phoneNumber represents phone number
 	 */
-	public void setPhoneNumber(int phoneNumber) {
+	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 
@@ -280,7 +280,7 @@ public class Contact implements Serializable {
 		if (getID() != contact.getID()) {
 			return false;
 		}
-		if (getPhoneNumber() != contact.getPhoneNumber()) {
+		if (!Objects.equals(getPhoneNumber(), contact.getPhoneNumber())) {
 			return false;
 		}
 		if (getName() != null ? !getName().equals(contact.getName()) : contact.getName() != null) {
@@ -296,7 +296,7 @@ public class Contact implements Serializable {
 	public int hashCode() {
 		int result = getName() != null ? getName().hashCode() : 0;
 		result = 31 * result + getID();
-		result = 31 * result + getPhoneNumber();
+		result = 31 * result + (getPhoneNumber() != null ? getPhoneNumber().hashCode() : 0);
 		result = 31 * result + (getDateAdded() != null ? getDateAdded().hashCode() : 0);
 		return result;
 	}

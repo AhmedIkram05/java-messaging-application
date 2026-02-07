@@ -5,7 +5,7 @@ public class BackendImplementation implements ApiBackend {
 
 	User user;
 
-	public BackendImplementation(String userName, int userPhoneNumber) {
+	public BackendImplementation(String userName, String userPhoneNumber) {
 		this.user = new User(userName, userPhoneNumber);
 	}
 
@@ -62,16 +62,16 @@ public class BackendImplementation implements ApiBackend {
 
 	@Override
 	public void addContacts() {
-		Contact contact1 = new Contact("Megan", 470275917);
-		Contact contact2 = new Contact("Jonny", 402754381);
-		Contact contact3 = new Contact("Liam Hall", 752748204);
-		Contact contact4 = new Contact("Mary Smith", 28462847);
-		Contact contact5 = new Contact("Jane Trigo", 34947281);
-		Contact contact6 = new Contact("Jeremy Milne", 847284731);
-		Contact contact7 = new Contact("Eric Hill", 492841321);
-		Contact contact8 = new Contact("Alice Low", 374285932);
-		Contact contact9 = new Contact("David Davis", 473748372);
-		Contact contact10 = new Contact("Lee Miller", 347384111);
+		Contact contact1 = new Contact("Megan", "470275917");
+		Contact contact2 = new Contact("Jonny", "402754381");
+		Contact contact3 = new Contact("Liam Hall", "752748204");
+		Contact contact4 = new Contact("Mary Smith", "28462847");
+		Contact contact5 = new Contact("Jane Trigo", "34947281");
+		Contact contact6 = new Contact("Jeremy Milne", "847284731");
+		Contact contact7 = new Contact("Eric Hill", "492841321");
+		Contact contact8 = new Contact("Alice Low", "374285932");
+		Contact contact9 = new Contact("David Davis", "473748372");
+		Contact contact10 = new Contact("Lee Miller", "347384111");
 		user.addContact(contact1);
 		user.addContact(contact2);
 		user.addContact(contact3);
