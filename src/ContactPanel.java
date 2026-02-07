@@ -195,12 +195,12 @@ public class ContactPanel extends JPanel implements ActionListener {
 				return false;
 			}
 		}
-		String phonStr = txtPhone.getText();
-		if (!(Objects.nonNull(phonStr) && !phonStr.isEmpty())) {
+		String phoneText = txtPhone.getText();
+		if (!(Objects.nonNull(phoneText) && !phoneText.isEmpty())) {
 			txtPhone.requestFocus();
 			return false;
 		} else {
-			if (!phonStr.matches(PHONE_NUMBER_PATTERN)) {
+			if (!phoneText.matches(PHONE_NUMBER_PATTERN)) {
 				txtPhone.requestFocus();
 				return false;
 			}
