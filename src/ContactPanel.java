@@ -19,6 +19,8 @@ public class ContactPanel extends JPanel implements ActionListener {
 	private static final String EDIT_NAME_ACTION = "EditName";
 	private static final String EDIT_ID_ACTION = "EditID";
 	private static final String EDIT_PHONE_ACTION = "EditPhone";
+	private static final String PHONE_NUMBER_PATTERN = "[\\d\\s]+";
+	private static final String PHONE_NUMBER_HAS_DIGIT_PATTERN = ".*\\d.*";
 	private JLabel avatar;
 	private JTextField txtName;
 	private JTextField txtId;
@@ -199,7 +201,7 @@ public class ContactPanel extends JPanel implements ActionListener {
 			txtPhone.requestFocus();
 			return false;
 		} else {
-			if (phonStr.trim().isEmpty() || !phonStr.matches("[\\d\\s]+")) {
+			if (!phonStr.matches(PHONE_NUMBER_PATTERN) || !phonStr.matches(PHONE_NUMBER_HAS_DIGIT_PATTERN)) {
 				txtPhone.requestFocus();
 				return false;
 			}
