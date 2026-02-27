@@ -4,8 +4,6 @@ A feature-rich desktop messaging application built with Java Swing. Supports ind
 
 ## 📸 Screenshots
 
-> Add screenshots to `assets/screenshots/` and update the paths below.
-
 | Chat View | Contacts | 
 |---|---|
 | ![Chat](assets/screenshots/chat.png) | ![Contacts](assets/screenshots/contacts.png) |
